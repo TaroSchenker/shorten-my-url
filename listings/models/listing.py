@@ -6,3 +6,7 @@ class Listing(db.Model):
     title = db.Column(db.String(80))
     body = db.Column(db.String(500))
     email = db.Column(db.String(500))
+
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(80))
