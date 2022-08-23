@@ -18,7 +18,7 @@ def index():
         url = request.form["url"]
         long_url = Url_input.query.filter_by(url=url).first()
         if long_url:
-            webbrowser.open(f"http://www.{long_url.url}")
+            webbrowser.open_new_tab(f"http://www.{long_url.url}")
             return render_template("index.html", listings=listings)
         else:
             shorten_url = shortuuid.ShortUUID().random(length=5)
@@ -47,7 +47,7 @@ def catch_all(path):
         long_url = found_url.url
         print('longerurl',long_url)
         # return 'You want path: %s' % long_url
-        webbrowser.open(f"http://www.{long_url}")
+        webbrowser.open_new_tab(f"http://www.{long_url}")
         return render_template("index.html")
     else:
         return render_template("index.html")
