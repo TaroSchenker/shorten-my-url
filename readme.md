@@ -20,4 +20,3 @@
     2 .add web: pipenv run start to Procfile
     3. goto hroku to set up a deployment pileline. enter github repo name. 
     4. connect to repo and clik deploy.     
-
