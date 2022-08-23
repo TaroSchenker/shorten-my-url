@@ -1,7 +1,28 @@
-# instructions 
- 1. If psycopg2 does not install then instal postgres ( brew install postgres)
+# LAP 4 CODING CHALLENGE - The Real URL Shortener
 
-check check 
+## Installation
+* Clone repo
+* cd into the folder - `cd shorten-my-urk`
+* `pipenv shell`
+* `pipenv install`
+* locally - `pipenv run dev` running on http://127.0.0.1:3000 
+
+## Deployment
+*  deployed to Heroku - https://url-shorten-quick.herokuapp.com/
+
+## Wins & Challenges
+
+### Wins
+
+
+### Challenges
+
+
+### Future To-do's
+
+## Contacts
+
+
 
 ## How to deployto heroku
     1. SQL lite doesnt work well for hosting so we have to change the Db
