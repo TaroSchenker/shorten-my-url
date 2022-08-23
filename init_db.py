@@ -1,5 +1,5 @@
 from listings import db
-from listings.models.listing import Listing
+from listings.models.listing import Listing, Url_input
 
 # Clear it all out
 
