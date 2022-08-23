@@ -1,7 +1,7 @@
 # instructions 
  1. If psycopg2 does not install then instal postgres ( brew install postgres)
 
-
+check check 
 
 ## How to deployto heroku
     1. SQL lite doesnt work well for hosting so we have to change the Db
