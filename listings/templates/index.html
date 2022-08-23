@@ -10,7 +10,9 @@
     <ul>
         {% for listing in listings %}
             <li class="listing">
+                Enter your url
                 <h2>{{ listing.url }}</h3>
+                <h2>{{ listing.shorten_url }}</h3>
                 <!-- <p>{{ listing.body }}<em class="contact-details"> | {{ listing.email }}</em></p> -->
                 
             </li>
@@ -20,8 +22,8 @@
     <h2>Add new listing</h2>
     <form method="POST">
         <fieldset>
-            <label for="title-input">Title: </label>
-            <input type="text" id="title-input" name="title" required />
+            <label for="url-input">Title: </label>
+            <input type="text" id="url-input" name="url" required />
         </fieldset>
         <!-- <fieldset>
             <label for="email-input">Email: </label>

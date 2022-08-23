@@ -8,16 +8,18 @@ main_routes = Blueprint("main", __name__)
 @main_routes.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
+        my_params =  request.url
+        print(my_params)
         listings = Listing.query.all()
         return render_template("index.html", listings=listings)
     else:
-
-
-        url = request.form["title"]
+        url = request.form["url"]
         shorten_url = 'potato'
-        new_url = Url_input(url=url, shorten_url=shorten_url)
+        new_url = Url_input(url=url, shorten_url=  shorten_url )
         db.session.add(new_url)
         db.session.commit()
+
+
         urls = Url_input.query.all()
         return render_template("index.html", listings=urls)
         # body = request.form["body"]
@@ -27,3 +29,11 @@ def index():
         # db.session.commit()
         # listings = Listing.query.all()
         # return render_template("index.html", listings=listings)
+@main_routes.route('/', defaults={'path': ''})
+@main_routes.route('/<path:path>')
+def catch_all(path):
+    print(path)
+    found_url = Url_input.get_main_url(shorten_url = path)
+    print('catchall',found_url)
+    return 'You want path: %s' % found_url
+
