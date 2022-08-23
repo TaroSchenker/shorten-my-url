@@ -1,0 +1,20 @@
+{% extends 'default.html' %}
+{% block headers %}
+    <script src={{ url_for('static', filename='./scripts/index.js')}} defer></script>
+{% endblock %}
+{% block title %}Listings{% endblock %}
+{% block content %}
+    <hr />
+    <ul>
+            <li class="listing">
+                Enter your url
+                <h2>{{ listing.url }}</h3>
+                    
+                    <a href={{url_for({{redirect_me}}}})> link
+                        text</a>
+                
+            </li>
+    </ul>
+    <hr />
+    <h2>Add new listing</h2>
+{% endblock %}
