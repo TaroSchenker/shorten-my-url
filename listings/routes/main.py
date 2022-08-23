@@ -47,7 +47,3 @@ def catch_all(path):
     # return 'You want path: %s' % long_url
     return webbrowser.open_new_tab(f"http://www.{long_url}")
 
-@main_routes.route('/redirect_me')
-def catch_all(path):
-    url = "http://www.google.com"
-    return webbrowser.open_new_tab(url)

@@ -9,10 +9,8 @@
             <li class="listing">
                 Enter your url
                 <h2>{{ listing.url }}</h3>
-                    
-                    <a href={{url_for({{redirect_me}}}})> link
-                        text</a>
-                
+                <h2>{{listing.shorten_url}}</h2>
+                    <a href={{listing.shorten_url}} target=“_blank” rel=“noopener”>Link Text</a>
             </li>
     </ul>
     <hr />
