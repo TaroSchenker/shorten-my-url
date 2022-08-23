@@ -2,6 +2,7 @@ from flask import Blueprint, request, render_template, redirect, url_for
 from ..database.db import db
 from ..models.listing import Listing, Url_input
 import webbrowser
+import shortuuid
 
 
 main_routes = Blueprint("main", __name__)
@@ -15,14 +16,19 @@ def index():
         return render_template("index.html", listings=listings)
     else:
         url = request.form["url"]
-        shorten_url = 'mouse'
-        new_url = Url_input(url=url, shorten_url=  shorten_url )
-        db.session.add(new_url)
-        db.session.commit()
+        long_url = Url_input.query.filter_by(url=url).first()
+        if long_url:
+            return webbrowser.open_new_tab(f"http://www.{long_url.url}")
+        else:
+            shorten_url = shortuuid.ShortUUID().random(length=5)
+            print(shorten_url)
+            new_url = Url_input(url=url, shorten_url=  shorten_url )
+            db.session.add(new_url)
+            db.session.commit()
 
 
-        urls = Url_input.query.all()
-        return render_template("index.html", listings=urls)
+        # urls = Url_input.query.all()
+        return render_template("url.html", listing=new_url)
         # body = request.form["body"]
         # email = request.form["email"]
         # new_listing = Listing(title=title, body=body, email=email)
@@ -41,3 +47,7 @@ def catch_all(path):
     # return 'You want path: %s' % long_url
     return webbrowser.open_new_tab(f"http://www.{long_url}")
 
+@main_routes.route('/redirect_me')
+def catch_all(path):
+    url = "http://www.google.com"
+    return webbrowser.open_new_tab(url)
