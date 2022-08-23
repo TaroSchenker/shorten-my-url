@@ -4,15 +4,9 @@
 {% endblock %}
 {% block title %}Listings{% endblock %}
 {% block content %}
-    <hr />
-    <ul>
-            <li class="listing">
-                Enter your url
-                <h2>{{ listing.url }}</h3>
-                <h2>{{listing.shorten_url}}</h2>
-                    <a href={{listing.shorten_url}}>Link Text</a>
-            </li>
-    </ul>
-    <hr />
-    <h2>Add new listing</h2>
+    <div class="pt-2">
+        <h5>Your new URL for</h5>
+        <p>{{ listing.url}}</p>        
+        <a href={{listing.shorten_url}}> https://url-shorten-quick.herokuapp.com/ <p>{{listing.shorten_url}}</p></a>       
+    </div>
 {% endblock %}
