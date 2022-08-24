@@ -15,10 +15,6 @@ class Url_input(db.Model):
         all_urls = Url_input.query.all()
         return all_urls
 
-    def get_all():
-        all_urls = Url_input.query.all()
-        return all_urls
-
     def get_main_url(shorten_url):
         result = Url_input.query.filter_by(shorten_url=shorten_url).first()
         # print('this is the result in the model', result)
